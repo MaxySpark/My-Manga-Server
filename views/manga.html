@@ -1,0 +1,13 @@
+<head>
+    <style>
+        * {
+            text-align: center;
+        }
+    </style>
+</head>
+{% for image in images %}
+  <img src="{{ image }}" alt="">
+  <br />
+{% else %}
+  <p>This would display if the 'item' collection were empty</p>
+{% endfor %}

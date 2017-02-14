@@ -7,7 +7,7 @@ app.engine('html', engines.nunjucks);
 app.set('view engine', 'html');
 app.set('views', __dirname + "/views");
 app.use(express.static('files'));
-app.use('/css', express.static(path.join(__dirname, 'views/css')));
+app.use('/ext', express.static(path.join(__dirname, 'views/ext')));
 var images = 0;
 var imgarr =[];
 

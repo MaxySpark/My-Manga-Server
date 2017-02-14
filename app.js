@@ -8,41 +8,31 @@ app.set('view engine', 'html');
 app.set('views', __dirname + "/views");
 app.use(express.static('files'));
 app.use('/ext', express.static(path.join(__dirname, 'views/ext')));
-var images = 0;
-var imgarr =[];
 
 app.get('/',function(req, res){
     res.render('index');
 });
 
 app.get('/online',function(req, res){
-    res.render('index');
+    res.render('online');
     var search = req.query.search;
     if(search){
         console.log(search);
     }
 });
 
-app.get('/offline',function(req, res){
-    
-    res.send(200);
+
+fs.readdir('./files/',function(err, files){
+   if (err) {
+      return console.error(err);
+   }
+   console.log(files);
+
+   app.get('/offline',function(req, res){
+        res.status(200);
+        res.render('offline',{"dirList":files});
 });
-
-
-// fs.readdir('./img/',function(err, files){
-//    if (err) {
-//       return console.error(err);
-//    }
-//    console.log(files.length);
-//    images = files.length;
-//    for(var i = 1;i<=images;i++) {
-//        imgarr.push(i+".jpg");
-//    }
-//    app.get('/manga',function(req, res){
-//     res.status(200);
-//     res.render('manga',{"images":imgarr});
-// });
-// });
+});
 
 
 app.listen(3000, function() {

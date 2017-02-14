@@ -34,6 +34,9 @@ fs.readdir('./files/',function(err, files){
 });
 });
 
+app.get('/manga',function(req, res){
+    res.render('manga');
+});
 
 app.listen(3000, function() {
     console.log("Server running at port 3000!");

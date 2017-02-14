@@ -2,11 +2,12 @@ const express = require('express');
 const engines = require('consolidate');
 const app = express();
 const fs = require('fs');
-
+const path = require('path');
 app.engine('html', engines.nunjucks);
 app.set('view engine', 'html');
 app.set('views', __dirname + "/views");
 app.use(express.static('files'));
+app.use('/css', express.static(path.join(__dirname, 'views/css')));
 var images = 0;
 var imgarr =[];
 

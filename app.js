@@ -18,9 +18,11 @@ app.get('/',function(req, res){
 app.get('/online',function(req, res){
     res.render('online');
     var search = req.query.search;
+    var chap = req.query.chap;
+    var chap_to = req.query.chap_to;    
     if(search){
         console.log(search);
-        manga(search);
+        manga(search,chap,chap_to);
     }
 });
 

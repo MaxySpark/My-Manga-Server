@@ -1,5 +1,5 @@
 {
-  "name": "render_test",
+  "name": "my manga server",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -7,7 +7,7 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "MaxySpark ( me@bhargab.me )",
   "license": "ISC",
   "dependencies": {
     "consolidate": "^0.14.5",

@@ -15,15 +15,18 @@ app.get('/',function(req, res){
     res.render('index');
 });
 
-app.get('/online',function(req, res){
-    res.render('online');
+app.use('/online',function(req, res, next) {
     var search = req.query.search;
     var chap = req.query.chap;
     var chap_to = req.query.chap_to;    
     if(search){
         console.log(search);
-        manga(search,chap,chap_to);
+        manga(search,chap,chap_to,next);
     }
+})
+
+app.get('/online',function(req, res){
+    res.render('online');
 });
 
 

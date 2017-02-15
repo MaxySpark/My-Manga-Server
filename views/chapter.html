@@ -1,6 +1,6 @@
 <head>
     <title>My Manga Server</title>
-    <link rel="stylesheet" href="ext/bootstrap.min.css">
+    <link rel="stylesheet" href="/ext/bootstrap.min.css">
     <style>
         * {
             text-align: center;
@@ -12,7 +12,7 @@
             font-weight: bold;
         }
         body {
-            background-image: url("ext/background.jpg");
+            background-image: url("/ext/background.jpg");
             background-position: center;
             background-size: cover;
         }
@@ -21,11 +21,20 @@
 <div class="container">
 <a href=""><h1>My Manga Server</h1></a>
         {% for chapter in chapterList %}
-        <div class="btn-group">
-            <a href="/offline/1"><button type="button" class="btn btn-lg btn-success">{{ chapter }}</button></a>
-            <br>
-        </div>
-        {% else %}
-        <p>This would display if the 'item' collection were empty</p>
+        
+            <a href="#"><button type="button" class="btn btn-lg btn-success">{{ chapter }}</button></a>
+            <hr>
+
+        {% else %} 
+            <h1>There is No Chapter</h1>
         {% endfor %}
 </div>
+
+<div class="btn-group">
+        <button type="button" class="btn btn-lg btn-primary" onclick="myFunction()">Reload</button>
+</div>
+<script type="text/javascript">
+    function myFunction() {
+    location.reload();
+}
+</script>

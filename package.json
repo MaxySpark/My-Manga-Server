@@ -1,7 +1,7 @@
 {
   "name": "my_manga_server",
   "version": "1.0.0",
-  "description": "",
+  "description": "DOwnloaded Manga Server",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

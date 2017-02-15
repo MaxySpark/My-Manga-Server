@@ -53,13 +53,37 @@ fs.readdir('./files/',function(err, files){
         var id = parseInt(req.params.id,10)-1;
         console.log(id);
         var chapterList = getChapter(files[id]);
-        res.render('chapter',{"chapterList":chapterList});
+        var chapObj = [];
+        var inc = 0;        
+        chapterList.forEach(function(element){
+            chapObj.push({
+                "name" : element,
+                "id" : ++inc
+            });
+        });
+        res.render('chapter',{"chapterList":chapObj, "manga":files[id] });
     });
 
 });
 
 app.get('/manga',function(req, res){
-    res.render('manga');
+        var manga = req.query.manga;
+        var chapter_name = req.query.chap_name;
+        var images = 0;
+        var imgarr = [];
+        fs.readdir(__dirname+'/files/'+manga+'/'+chapter_name+'/',function(err, files){
+            if (err) {
+                return console.error(err);
+            }
+            console.log(files);
+            images = files.length;
+        });
+        for(var i = 1;i<=images;i++) {
+            imgarr.push(i+".jpg");
+        }
+
+    res.render('manga',{"images":imgarr});
+
 });
 
 app.listen(3000, function() {

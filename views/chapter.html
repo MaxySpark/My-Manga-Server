@@ -22,7 +22,7 @@
 <a href="/"><h1>My Manga Server</h1></a>
         {% for chapter in chapterList %}
         
-            <a href="#"><button type="button" class="btn btn-lg btn-success">{{ chapter }}</button></a>
+            <a href="/manga?chap_id={{ chapter.id }}&chap_name={{ chapter.name }}&manga={{ manga }}"><button type="button" class="btn btn-lg btn-success">{{ chapter.name }}</button></a>
             <hr>
 
         {% else %} 

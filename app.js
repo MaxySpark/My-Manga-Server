@@ -31,18 +31,26 @@ app.get('/online',function(req, res){
 
 
 fs.readdir('./files/',function(err, files){
-   if (err) {
-      return console.error(err);
-   }
-   console.log(files);
-
-   app.get('/offline',function(req, res){
-        res.status(200);
-        res.render('offline',{"dirList":files});
+    var fileObj = [];
+    var inc = 0;
+    if (err) {
+        return console.error(err);
+    }
+    console.log(files);
+    files.forEach(function(file){
+        fileObj.push({
+            "name": file,
+            "id" : ++inc
+        });
+    });
+    console.log(fileObj);
+    app.get('/offline',function(req, res){
+            res.status(200);
+            res.render('offline',{"dirList":fileObj});
     });
 
     app.get('/offline/:id',function(req, res){
-        var id = parseInt(req.params.id,10);
+        var id = parseInt(req.params.id,10)-1;
         console.log(id);
         var chapterList = getChapter(files[id]);
         res.render('chapter',{"chapterList":chapterList});

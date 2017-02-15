@@ -24,7 +24,7 @@
     
         {% for dir in dirList %}
         <div class="btn-group">
-            <a href="/online"><button type="button" class="btn btn-lg btn-success">{{ dir }}</button></a>
+            <a href="/offline/{{ dir.id }}"><button type="button" class="btn btn-lg btn-success">{{ dir.name }}</button></a>
             <br>
         </div>
         {% else %}

@@ -3,3 +3,5 @@ node_modules/
 .idea/
 img/
 files/
+npm-debug.log
+note.txt

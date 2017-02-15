@@ -4,7 +4,7 @@ const app = express();
 const fs = require('fs');
 const path = require('path');
 const getChapter = require('./lib/read_chapter');
-
+const manga = require('./lib/manga');
 app.engine('html', engines.nunjucks);
 app.set('view engine', 'html');
 app.set('views', __dirname + "/views");
@@ -20,6 +20,7 @@ app.get('/online',function(req, res){
     var search = req.query.search;
     if(search){
         console.log(search);
+        manga(search);
     }
 });
 

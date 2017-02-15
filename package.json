@@ -1,5 +1,5 @@
 {
-  "name": "my manga server",
+  "name": "my_manga_server",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -7,8 +7,16 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxySpark/My-Manga-Server.git"
+  },
   "author": "MaxySpark ( me@bhargab.me )",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxySpark/My-Manga-Server/issues"
+  },
+  "homepage": "https://github.com/MaxySpark/My-Manga-Server#readme",
   "dependencies": {
     "consolidate": "^0.14.5",
     "express": "^4.14.0",
